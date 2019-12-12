@@ -6,9 +6,5 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class GameTest {
 
-    @Test
-    void newGamesHaveNoWinner() {
-        Optional<Integer> winner = new Game().winner();
-        assertTrue(winner.isEmpty());
-    }
+
 }

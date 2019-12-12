@@ -19,4 +19,7 @@ public class Board {
         System.out.println("Successful Move!");
     }
 
+    public int getCell(int x, int y){
+        return board[x][y];
+    }
 }
