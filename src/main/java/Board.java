@@ -36,5 +36,6 @@ public class Board {
         if (grid[2][0] == player && grid[1][1] == player && grid[0][2] == player) {
             return true;
         }
+        return false;
     }
 }
