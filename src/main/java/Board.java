@@ -21,7 +21,7 @@ public class Board {
         return x >= 0 && x <= 2 && y >= 0 && y <= 2;
     }
 
-    private boolean playerHasWon(int player) {
+    public boolean playerHasWon(int player) {
         for (int i = 0; i < 3; i++) {
             if (grid[i][0] == player && grid[i][1] == player && grid[i][2] == player) {
                 return true;

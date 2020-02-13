@@ -55,4 +55,30 @@ public class BoardTest {
         board.placeMove(1, 1, 0);
         assertTrue(board.isValidMove(1,1));
     }
+
+    @Test
+    void playerOneHasWonTest() {
+        board.placeMove(0,0,1);
+        board.placeMove(1,1,1);
+        board.placeMove(2,2,1);
+        assertTrue(board.playerHasWon(1));
+        assertFalse(board.playerHasWon(2));
+    }
+
+    @Test
+    void neitherPlayerHasWonTest() {
+        board.placeMove(0,0,1);
+        board.placeMove(1,1,2);
+        board.placeMove(2,2,1);
+        assertFalse(board.playerHasWon(1));
+        assertFalse(board.playerHasWon(2));
+    }
+
+    @Test
+    void noWinnerAfterNoMoves(){
+        assertFalse(board.playerHasWon(1));
+        assertFalse(board.playerHasWon(2));
+    }
+
+
 }

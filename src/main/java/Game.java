@@ -7,7 +7,7 @@ public class Game {
   private final int player2 = 2;
   int playerx;
   int playery;
-  int currentPlayer = player1;
+  int currentPlayer = player2;
 
   public static void main(String[] args) {
     new Game(System.in);
@@ -16,11 +16,15 @@ public class Game {
   public Game(InputStream inputStream) {
     Scanner scanner = new Scanner(inputStream);
     Board board = new Board();
-    do {
-      playerx = scanner.nextInt();
-      playery = scanner.nextInt();
-    } while ((!board.isValidMove(playerx, playery)));
-    board.placeMove(playerx, playery, currentPlayer);
+
+    while (!board.playerHasWon(currentPlayer)) {
+      currentPlayer = currentPlayer == player1 ? player2 : player1;
+      do {
+        playerx = scanner.nextInt();
+        playery = scanner.nextInt();
+      } while (!board.isValidMove(playerx, playery));
+      board.placeMove(playerx, playery, currentPlayer);
+    }
 
   }
 }
