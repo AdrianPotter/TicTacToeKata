@@ -19,7 +19,7 @@ class GameTest {
 
   @Test
   void playerSwitchedAfterTurn() {
-    List<Integer> coordinates = List.of(0,0,1,1,2,2);
+    List<Integer> coordinates = List.of(0, 0, 1, 1, 2, 2);
     Assertions.assertThrows(NoSuchElementException.class, () -> {
       new Game(getInputStreamFromList(coordinates));
     });
@@ -27,14 +27,24 @@ class GameTest {
 
   @Test
   void playerCanWin() {
-    List<Integer> coordinates = List.of(0,0,0,1,1,1,1,0,2,2);
-      new Game(getInputStreamFromList(coordinates));
+    List<Integer> coordinates = List.of(0, 0, 0, 1, 1, 1, 1, 0, 2, 2);
+    new Game(getInputStreamFromList(coordinates));
   }
 
   @Test
-  void playerHasWon()
-  {
-    List<Integer> coordinates = List.of();
+  void gameEndsInDraw() {
+    List<Integer> coordinates = List.of(
+            1, 1,
+            0, 0,
+            0, 1,
+            2, 1,
+            1, 0,
+            1, 2,
+            0, 2,
+            2, 0,
+            2, 2
+    );
+    new Game(getInputStreamFromList(coordinates));
   }
 
 

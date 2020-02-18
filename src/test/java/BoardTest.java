@@ -80,5 +80,22 @@ public class BoardTest {
         assertFalse(board.playerHasWon(2));
     }
 
+    @Test
+    void newBoardHasEmptyCell(){
+        assertTrue(board.hasEmptyCell());
+    }
 
+    @Test
+    void fullBoardHasNoEmptyCell(){
+        board.placeMove(0, 0, 1);
+        board.placeMove(0, 1, 1);
+        board.placeMove(0, 2, 1);
+        board.placeMove(1, 0, 1);
+        board.placeMove(1, 1, 1);
+        board.placeMove(1, 2, 1);
+        board.placeMove(2, 0, 1);
+        board.placeMove(2, 1, 1);
+        board.placeMove(2, 2, 1);
+        assertFalse(board.hasEmptyCell());
+    }
 }
