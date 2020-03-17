@@ -29,6 +29,7 @@ public class GridTest {
 
   @Test
   void isMoveInOccupiedCellInvalid() {
+    grid.placeMove(0, Symbol.O);
     Assertions.assertFalse(grid.isValidMove(0, Symbol.O));
   }
 
@@ -57,5 +58,4 @@ public class GridTest {
   void emptySymbolsMoveIsInvalid() {
     Assertions.assertFalse(grid.isValidMove(0, Symbol.EMPTY));
   }
-
 }

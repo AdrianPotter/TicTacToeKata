@@ -17,10 +17,13 @@ public class Grid {
   }
 
   public boolean isValidMove(int index, Symbol symbol) {
-    if (index < 0 || index > 8) {
+    if (index < 0 || index > cells.size()-1) {
       return false;
     }
     else if (getCellSymbol(index) != Symbol.EMPTY) {
+      return false;
+    }
+    else if (symbol == Symbol.EMPTY){
       return false;
     }
     return true;
@@ -35,6 +38,10 @@ public class Grid {
       Cell cell = new Cell();
       cells.add(cell);
     }
+  }
+
+  public void checkWinner(Symbol symbol){
+    // fill me
   }
 
 }
