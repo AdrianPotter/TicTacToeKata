@@ -106,4 +106,100 @@ public class GridTest {
     grid.placeMove(8, Symbol.X);
     Assertions.assertFalse(grid.checkWinner(Symbol.X));
   }
+
+  @Test
+  void twoMatchingSymbolsOnBottomRowIsNotAWinner() {
+    grid.placeMove(6, Symbol.X);
+    grid.placeMove(7, Symbol.X);
+    Assertions.assertFalse(grid.checkWinner(Symbol.X));
+  }
+
+  @Test
+  void threeMatchingSymbolsOnLeftColumnIsAWinner() {
+    grid.placeMove(0, Symbol.O);
+    grid.placeMove(3, Symbol.O);
+    grid.placeMove(6, Symbol.O);
+    Assertions.assertTrue(grid.checkWinner(Symbol.O));
+  }
+
+  @Test
+  void threeUnMatchingSymbolsOnLeftColumnIsNotAWinner() {
+    grid.placeMove(0, Symbol.O);
+    grid.placeMove(3, Symbol.X);
+    grid.placeMove(6, Symbol.O);
+    Assertions.assertFalse(grid.checkWinner(Symbol.O));
+  }
+
+  @Test
+  void threeMatchingSymbolsOnMiddleColumnIsAWinner() {
+    grid.placeMove(1, Symbol.O);
+    grid.placeMove(4, Symbol.O);
+    grid.placeMove(7, Symbol.O);
+    Assertions.assertTrue(grid.checkWinner(Symbol.O));
+  }
+
+  @Test
+  void threeUnMatchingSymbolsOnMiddleColumnIsNotAWinner() {
+    grid.placeMove(1, Symbol.O);
+    grid.placeMove(4, Symbol.X);
+    grid.placeMove(7, Symbol.O);
+    Assertions.assertFalse(grid.checkWinner(Symbol.O));
+  }
+
+  @Test
+  void threeMatchingSymbolsOnRightColumnIsAWinner() {
+    grid.placeMove(2, Symbol.O);
+    grid.placeMove(5, Symbol.O);
+    grid.placeMove(8, Symbol.O);
+    Assertions.assertTrue(grid.checkWinner(Symbol.O));
+  }
+
+  @Test
+  void threeUnMatchingSymbolsOnRightColumnIsNotAWinner() {
+    grid.placeMove(2, Symbol.O);
+    grid.placeMove(5, Symbol.X);
+    grid.placeMove(8, Symbol.O);
+    Assertions.assertFalse(grid.checkWinner(Symbol.O));
+  }
+
+  @Test
+  void threeMatchingSymbolsOnRightDiagonalIsAWinner() {
+    grid.placeMove(0, Symbol.X);
+    grid.placeMove(4, Symbol.X);
+    grid.placeMove(8, Symbol.X);
+    Assertions.assertTrue(grid.checkWinner(Symbol.X));
+  }
+
+  @Test
+  void threeMatchingSymbolsOnRightDiagonalIsNotAWinner() {
+    grid.placeMove(0, Symbol.X);
+    grid.placeMove(4, Symbol.O);
+    grid.placeMove(8, Symbol.X);
+    Assertions.assertFalse(grid.checkWinner(Symbol.X));
+  }
+
+  @Test
+  void threeMatchingSymbolsOnLeftDiagonalIsAWinner() {
+    grid.placeMove(2, Symbol.X);
+    grid.placeMove(4, Symbol.X);
+    grid.placeMove(6, Symbol.X);
+    Assertions.assertTrue(grid.checkWinner(Symbol.X));
+  }
+
+  @Test
+  void threeMatchingSymbolsOnLeftDiagonalIsNotAWinner() {
+    grid.placeMove(2, Symbol.X);
+    grid.placeMove(4, Symbol.O);
+    grid.placeMove(6, Symbol.X);
+    Assertions.assertFalse(grid.checkWinner(Symbol.X));
+  }
+
+  @Test
+  void emptySymbolPassedToCheckWinnerThrowsError() {
+
+  }
+
+
+
+
 }

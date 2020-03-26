@@ -41,6 +41,9 @@ public class Grid {
   }
 
   public boolean checkWinner(Symbol symbol){
+    if(symbol == Symbol.EMPTY){
+
+    }
     if(getCellSymbol(0) == symbol && getCellSymbol(1) == symbol && getCellSymbol(2) == symbol) {
       return true;
     }
@@ -50,6 +53,22 @@ public class Grid {
     if(getCellSymbol(6) == symbol && getCellSymbol(7) == symbol && getCellSymbol(8) == symbol) {
       return true;
     }
+    if(getCellSymbol(0) == symbol && getCellSymbol(3) == symbol && getCellSymbol(6) == symbol) {
+      return true;
+    }
+    if(getCellSymbol(1) == symbol && getCellSymbol(4) == symbol && getCellSymbol(7) == symbol) {
+      return true;
+    }
+    if(getCellSymbol(2) == symbol && getCellSymbol(5) == symbol && getCellSymbol(8) == symbol) {
+      return true;
+    }
+    if(getCellSymbol(0) == symbol && getCellSymbol(4) == symbol && getCellSymbol(8) == symbol) {
+      return true;
+    }
+    if(getCellSymbol(2) == symbol && getCellSymbol(4) == symbol && getCellSymbol(6) == symbol) {
+      return true;
+    }
+
     return false;
   }
 
