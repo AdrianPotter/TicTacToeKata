@@ -100,7 +100,7 @@ public class GridTest {
   }
 
   @Test
-  void threeMatchingSymbolsOnBottomRowIsNotAWinner() {
+  void threeUnMatchingSymbolsOnBottomRowIsNotAWinner() {
     grid.placeMove(6, Symbol.X);
     grid.placeMove(7, Symbol.O);
     grid.placeMove(8, Symbol.X);
@@ -171,7 +171,7 @@ public class GridTest {
   }
 
   @Test
-  void threeMatchingSymbolsOnRightDiagonalIsNotAWinner() {
+  void threeUnMatchingSymbolsOnRightDiagonalIsNotAWinner() {
     grid.placeMove(0, Symbol.X);
     grid.placeMove(4, Symbol.O);
     grid.placeMove(8, Symbol.X);
@@ -187,7 +187,7 @@ public class GridTest {
   }
 
   @Test
-  void threeMatchingSymbolsOnLeftDiagonalIsNotAWinner() {
+  void threeUnMatchingSymbolsOnLeftDiagonalIsNotAWinner() {
     grid.placeMove(2, Symbol.X);
     grid.placeMove(4, Symbol.O);
     grid.placeMove(6, Symbol.X);
@@ -196,10 +196,6 @@ public class GridTest {
 
   @Test
   void emptySymbolPassedToCheckWinnerThrowsError() {
-
+    Assertions.assertThrows(IllegalArgumentException.class, ()-> grid.checkWinner(Symbol.EMPTY));
   }
-
-
-
-
 }

@@ -42,7 +42,7 @@ public class Grid {
 
   public boolean checkWinner(Symbol symbol){
     if(symbol == Symbol.EMPTY){
-
+      throw new IllegalArgumentException("EMPTY symbol cannot win");
     }
     if(getCellSymbol(0) == symbol && getCellSymbol(1) == symbol && getCellSymbol(2) == symbol) {
       return true;
