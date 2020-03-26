@@ -40,8 +40,17 @@ public class Grid {
     }
   }
 
-  public void checkWinner(Symbol symbol){
-    // fill me
+  public boolean checkWinner(Symbol symbol){
+    if(getCellSymbol(0) == symbol && getCellSymbol(1) == symbol && getCellSymbol(2) == symbol) {
+      return true;
+    }
+    if(getCellSymbol(3) == symbol && getCellSymbol(4) == symbol && getCellSymbol(5) == symbol) {
+      return true;
+    }
+    if(getCellSymbol(6) == symbol && getCellSymbol(7) == symbol && getCellSymbol(8) == symbol) {
+      return true;
+    }
+    return false;
   }
 
 }
