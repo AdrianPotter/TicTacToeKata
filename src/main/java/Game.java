@@ -1,3 +1,4 @@
+import java.io.InputStream;
 import java.util.Scanner;
 
 public class Game {
@@ -9,16 +10,9 @@ public class Game {
     public Game(){
     }
 
-    public void play(){
 
-        System.out.println(player1.getName() + " Please Enter Input: ");
-        int playerMove = takeUserInput();
-        switchCurrentPlayer();
-
-    }
-
-    public int takeUserInput(){
-        Scanner scanner = new Scanner(System.in);
+    public int takeUserInput(InputStream inputStream){
+        Scanner scanner = new Scanner(inputStream);
         return scanner.nextInt();
     }
 
