@@ -1,8 +1,8 @@
 public class Player {
   private String name;
-  private String symbol;
+  private Symbol symbol;
 
-  public Player(String name, String symbol) {
+  public Player(String name, Symbol symbol) {
     this.name = name;
     this.symbol = symbol;
   }
@@ -11,7 +11,7 @@ public class Player {
     return name;
   }
 
-  public String getSymbol() {
+  public Symbol getSymbol() {
     return symbol;
   }
 }
