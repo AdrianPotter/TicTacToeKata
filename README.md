@@ -58,3 +58,5 @@ The following is a list of coding principles that describe good practice in writ
     - Unit tests should be repeatable in various environments
     - Unit tests should be meaningful; changing or removing any logic in either a test or source code should lead to a failing test
     - The target unit test coverage should be 100%. Missing coverage should be well understood
+    
+Adapted from: https://dzone.com/articles/clean-code-summary-and-key-points    
