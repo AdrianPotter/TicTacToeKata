@@ -16,7 +16,7 @@ public class GameTest {
 
   @Test
   void noErrorWhenSwitchPlayerMethodCalled() {
-      game.switchCurrentPlayer();
+    game.switchCurrentPlayer();
   }
 
   @Test
@@ -29,6 +29,11 @@ public class GameTest {
   @Test
   void validInputIsValid() {
     Assertions.assertTrue(game.isMoveValid(1));
+  }
+
+  @Test
+  void noErrorWhenPlaceUserMoveMethodCalled() {
+    game.placeUserMove(1);
   }
 
   @Test

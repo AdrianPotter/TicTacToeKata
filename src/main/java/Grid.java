@@ -30,7 +30,12 @@ public class Grid {
   }
 
   public void placeMove(int gridPosition, Symbol symbol) {
-    cells.get(gridPosition).setSymbol(symbol);
+    try {
+      cells.get(gridPosition).setSymbol(symbol);
+    }
+    catch(IndexOutOfBoundsException e){
+
+    }
   }
 
   private void initialiseEmptyGrid() {
