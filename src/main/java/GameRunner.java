@@ -13,6 +13,9 @@ public class GameRunner {
     }
 
     public void runGame(InputStream inputStream){
-        game.takeUserInput(inputStream);
+
+        int userInput = game.takeUserInput(inputStream);
+        game.isMoveValid(userInput);
+
     }
 }

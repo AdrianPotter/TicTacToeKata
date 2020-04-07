@@ -26,4 +26,14 @@ public class GameTest {
     Assertions.assertEquals(0, game.takeUserInput(byteArrayInputStream));
   }
 
+  @Test
+  void validInputIsValid() {
+    Assertions.assertTrue(game.isMoveValid(1));
+  }
+
+  @Test
+  void invalidInputIsInvalid() {
+    Assertions.assertFalse(game.isMoveValid(-1));
+  }
+
 }

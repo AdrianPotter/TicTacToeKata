@@ -13,7 +13,13 @@ public class Game {
         return scanner.nextInt();
     }
 
-    public boolean
+    public boolean isMoveValid(int userInput){
+        return grid.isValidMove(userInput, currentPlayer.getSymbol());
+    }
+
+    public void placeUserMove(int userInput){
+        grid.placeMove(userInput, currentPlayer.getSymbol());
+    }
 
     public void switchCurrentPlayer(){
         currentPlayer = currentPlayer == player1 ? player2 : player1;
