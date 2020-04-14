@@ -15,7 +15,7 @@ public class GameRunner {
     public void runGame(InputStream inputStream){
 
         int userInput = game.takeUserInput(inputStream);
-        game.isMoveValid(userInput);
+        game.placeUserMove(userInput);
 
     }
 }

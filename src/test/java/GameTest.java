@@ -34,7 +34,10 @@ public class GameTest {
 
   @Test
   void errorThrownWhenPlaceInvalidUserMove() {
-    Assertions.assertFalse(game.isMoveValid(-1));
+    Assertions.assertThrows(IllegalArgumentException.class, () ->  game.placeUserMove(-1));
   }
+
+  @Test
+  void
 
 }

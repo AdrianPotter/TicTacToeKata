@@ -30,4 +30,9 @@ public class Game {
         currentPlayer = currentPlayer == player1 ? player2 : player1;
     }
 
+    public boolean isGameWon() {
+        return grid.checkWinner(currentPlayer.getSymbol());
+    }
+
+
 }
