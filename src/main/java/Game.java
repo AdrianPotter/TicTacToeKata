@@ -13,12 +13,17 @@ public class Game {
         return scanner.nextInt();
     }
 
-    public boolean isMoveValid(int userInput){
+    private boolean isValidMove(int userInput){
         return grid.isValidMove(userInput, currentPlayer.getSymbol());
     }
 
     public void placeUserMove(int userInput){
-        grid.placeMove(userInput, currentPlayer.getSymbol());
+        if ( isValidMove(userInput)){
+            grid.placeMove(userInput, currentPlayer.getSymbol());
+        }
+        else{
+            throw new IllegalArgumentException("Move is invalid: " + userInput);
+        }
     }
 
     public void switchCurrentPlayer(){
