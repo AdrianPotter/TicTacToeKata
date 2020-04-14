@@ -3,36 +3,43 @@ import java.util.Scanner;
 
 public class Game {
 
-    private final Player player1 = new Player("Player One", Symbol.X);
-    private final Player player2 = new Player("Player Two", Symbol.O);
-    private Player currentPlayer = player1;
-    private Grid grid = new Grid();
+  private final Player player1 = new Player("Player One", Symbol.X);
+  private final Player player2 = new Player("Player Two", Symbol.O);
+  private Player currentPlayer = player1;
+  private Grid grid;
 
-    public int takeUserInput(InputStream inputStream){
-        Scanner scanner = new Scanner(inputStream);
-        return scanner.nextInt();
-    }
+  public Game() {
+    grid = new Grid();
+  }
 
-    private boolean isValidMove(int userInput){
-        return grid.isValidMove(userInput, currentPlayer.getSymbol());
-    }
+  public Game(Grid grid) {
+    this.grid = grid;
+  }
 
-    public void placeUserMove(int userInput){
-        if ( isValidMove(userInput)){
-            grid.placeMove(userInput, currentPlayer.getSymbol());
-        }
-        else{
-            throw new IllegalArgumentException("Move is invalid: " + userInput);
-        }
-    }
+  public int takeUserInput(InputStream inputStream) {
+    Scanner scanner = new Scanner(inputStream);
+    return scanner.nextInt();
+  }
 
-    public void switchCurrentPlayer(){
-        currentPlayer = currentPlayer == player1 ? player2 : player1;
-    }
+  private boolean isValidMove(int userInput) {
+    return grid.isValidMove(userInput, currentPlayer.getSymbol());
+  }
 
-    public boolean isGameWon() {
-        return grid.checkWinner(currentPlayer.getSymbol());
+  public void placeUserMove(int userInput) {
+    if (isValidMove(userInput)) {
+      grid.placeMove(userInput, currentPlayer.getSymbol());
+    } else {
+      throw new IllegalArgumentException("Move is invalid: " + userInput);
     }
+  }
+
+  public void switchCurrentPlayer() {
+    currentPlayer = currentPlayer == player1 ? player2 : player1;
+  }
+
+  public boolean isGameWon() {
+    return grid.checkWinner(currentPlayer.getSymbol());
+  }
 
 
 }
