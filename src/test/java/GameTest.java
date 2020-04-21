@@ -52,4 +52,11 @@ public class GameTest {
     Assertions.assertTrue(winningGame.isGameWon());
   }
 
+  @Test
+  void drawWhenDrawConditionMet() {
+    Grid grid = Mockito.mock(Grid.class);
+    Mockito.when(grid.checkDraw()).thenReturn(true);
+    Game drawnGame = new Game(grid);
+    Assertions.assertTrue(drawnGame.isGameDraw());
+  }
 }

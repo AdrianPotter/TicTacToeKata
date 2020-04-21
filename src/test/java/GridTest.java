@@ -203,4 +203,12 @@ public class GridTest {
   void gridWithEmptyCellIsNotDraw() {
     Assertions.assertFalse(grid.checkDraw());
   }
+
+  @Test
+  void gridWithNoEmptyCellsIsDraw(){
+    for(int i = 0; i < 9; i++){
+      grid.placeMove(i, Symbol.X);
+    }
+    Assertions.assertTrue(grid.checkDraw());
+  }
 }

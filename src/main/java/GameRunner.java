@@ -14,12 +14,13 @@ public class GameRunner {
 
     public void runGame(InputStream inputStream){
 
-
+        while (!game.isGameDraw()) {
             int userInput = game.takeUserInput(inputStream);
             game.placeUserMove(userInput);
-            game.isGameWon();
-
-
+            if (game.isGameWon()){
+                break;
+            }
+        }
 
     }
 }

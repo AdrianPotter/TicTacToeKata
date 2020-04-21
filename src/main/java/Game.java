@@ -41,5 +41,7 @@ public class Game {
     return grid.checkWinner(currentPlayer.getSymbol());
   }
 
-
+  public boolean isGameDraw(){
+    return grid.checkDraw();
+  }
 }

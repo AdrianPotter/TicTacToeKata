@@ -4,6 +4,8 @@ import java.util.List;
 public class Grid {
   private List<Cell> cells = new ArrayList<>();
 
+  private final int GRID_SIZE = 9;
+
   public Grid() {
     initialiseEmptyGrid();
   }
@@ -39,7 +41,7 @@ public class Grid {
   }
 
   private void initialiseEmptyGrid() {
-    for (int i = 0; i < 9; i++) {
+    for (int i = 0; i < GRID_SIZE; i++) {
       Cell cell = new Cell();
       cells.add(cell);
     }
