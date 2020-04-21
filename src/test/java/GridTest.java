@@ -198,4 +198,9 @@ public class GridTest {
   void emptySymbolPassedToCheckWinnerThrowsError() {
     Assertions.assertThrows(IllegalArgumentException.class, ()-> grid.checkWinner(Symbol.EMPTY));
   }
+
+  @Test
+  void gridWithEmptyCellIsNotDraw() {
+    Assertions.assertFalse(grid.checkDraw());
+  }
 }

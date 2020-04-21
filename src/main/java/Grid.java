@@ -45,6 +45,15 @@ public class Grid {
     }
   }
 
+  public boolean checkDraw(){
+    for(int i = 0; i < cells.size(); i++){
+      if(cells.get(i).getSymbol() == Symbol.EMPTY) {
+        return false;
+      }
+    }
+    return true;
+  }
+
   public boolean checkWinner(Symbol symbol){
     if(symbol == Symbol.EMPTY){
       throw new IllegalArgumentException("EMPTY symbol cannot win");
