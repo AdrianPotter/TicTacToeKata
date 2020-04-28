@@ -17,10 +17,16 @@ public class GameRunner {
     }
 
     public void runGame(){
-        int userInput;
         while(!game.currentPlayerHasWon() && !game.gameIsADraw()){
             game.switchPlayer();
-
+            while(true){
+                try{
+                    game.placeMove(takeUserInput());
+                    break;
+                }catch(IllegalArgumentException e){
+                    continue;
+                }
+            }
         }
     }
 
