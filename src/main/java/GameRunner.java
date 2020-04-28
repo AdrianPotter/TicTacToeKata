@@ -5,6 +5,11 @@ public class GameRunner {
 
   private Game game;
 
+  public static void main(String[] args) {
+    GameRunner gameRunner = new GameRunner();
+    gameRunner.runGame(System.in);
+  }
+
   public GameRunner() {
     this.game = new Game();
   }
@@ -14,20 +19,33 @@ public class GameRunner {
   }
 
   public void runGame(InputStream inputStream) {
-
+    Scanner scanner = new Scanner(inputStream);
     while (!game.isGameDraw()) {
-      int userInput = game.takeUserInput(inputStream);
-      game.placeUserMove(userInput);
+      displayMessage("Please Enter Move: ");
+      int userInput = takeUserInput(scanner);
+      while() {
+        try {
+          game.placeUserMove(userInput);
+        } catch (IllegalArgumentException e) {
+          displayMessage(e.toString());
+        }
+      }
       if (game.isGameWon()) {
+        displayMessage("Congratulations you have won!");
         break;
       }
       game.switchCurrentPlayer();
     }
-
+    if(game.isGameDraw()){
+      displayMessage("Game has ended in a draw!");
+    }
   }
 
-    public int takeUserInput(InputStream inputStream) {
-        Scanner scanner = new Scanner(inputStream);
+    private void displayMessage(String string) {
+      System.out.println(string);
+    }
+
+    private int takeUserInput(Scanner scanner) {
         return scanner.nextInt();
     }
 }

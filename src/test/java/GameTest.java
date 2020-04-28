@@ -22,14 +22,6 @@ public class GameTest {
   }
 
   @Test
-  void userInputIsReturned() {
-    String mockUserInput = "0";
-    ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(mockUserInput.getBytes());
-    Assertions.assertEquals(0, game.takeUserInput(byteArrayInputStream));
-  }
-
-
-  @Test
   void noErrorWhenPlaceValidUserMove() {
     game.placeUserMove(1);
   }

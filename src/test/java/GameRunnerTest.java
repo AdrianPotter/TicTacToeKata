@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import java.io.ByteArrayInputStream;
+import java.util.NoSuchElementException;
 
 public class GameRunnerTest {
 
@@ -12,13 +13,6 @@ public class GameRunnerTest {
   @BeforeEach
   void setup() {
     gameRunner = new GameRunner();
-  }
-
-  @Test
-  void shouldRunGame() {
-    String mockUserInput = "0";
-    ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(mockUserInput.getBytes());
-    gameRunner.runGame(byteArrayInputStream);
   }
 
   @Test
@@ -40,19 +34,19 @@ public class GameRunnerTest {
                 .thenReturn(false)
                 .thenReturn(true);
         Mockito.when(game.isGameWon()).thenReturn(false);
-        GameRunner winGameRunner = new GameRunner(game);
+        GameRunner drawGameRunner = new GameRunner(game);
         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(mockUserInput.getBytes());
-        winGameRunner.runGame(byteArrayInputStream);
+        drawGameRunner.runGame(byteArrayInputStream);
     }
 
     @Test
     void gameRunnerThrowsExceptionWhenNoInputIsAvailable() {
-        String mockUserInput = "0";
+        String mockUserInput = "0\n1";
         Game game = Mockito.mock(Game.class);
         Mockito.when(game.isGameDraw()).thenReturn(false);
         Mockito.when(game.isGameWon()).thenReturn(false);
-        GameRunner winGameRunner = new GameRunner(game);
+        GameRunner noInputLeftGameRunner = new GameRunner(game);
         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(mockUserInput.getBytes());
-        winGameRunner.runGame(byteArrayInputStream);
+        Assertions.assertThrows(NoSuchElementException.class, ()-> noInputLeftGameRunner.runGame(byteArrayInputStream));
     }
 }

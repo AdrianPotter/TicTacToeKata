@@ -16,8 +16,6 @@ public class Game {
     this.grid = grid;
   }
 
-
-
   private boolean isValidMove(int userInput) {
     return grid.isValidMove(userInput, currentPlayer.getSymbol());
   }
@@ -40,5 +38,9 @@ public class Game {
 
   public boolean isGameDraw(){
     return grid.checkDraw();
+  }
+
+  private void displayMessage(String message){
+    System.out.println(message);
   }
 }
