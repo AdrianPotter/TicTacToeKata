@@ -16,10 +16,7 @@ public class Game {
     this.grid = grid;
   }
 
-  public int takeUserInput(InputStream inputStream) {
-    Scanner scanner = new Scanner(inputStream);
-    return scanner.nextInt();
-  }
+
 
   private boolean isValidMove(int userInput) {
     return grid.isValidMove(userInput, currentPlayer.getSymbol());

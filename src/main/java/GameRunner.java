@@ -1,4 +1,5 @@
 import java.io.InputStream;
+import java.util.Scanner;
 
 public class GameRunner {
 
@@ -24,4 +25,9 @@ public class GameRunner {
     }
 
   }
+
+    public int takeUserInput(InputStream inputStream) {
+        Scanner scanner = new Scanner(inputStream);
+        return scanner.nextInt();
+    }
 }

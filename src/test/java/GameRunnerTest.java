@@ -32,4 +32,27 @@ public class GameRunnerTest {
     winGameRunner.runGame(byteArrayInputStream);
   }
 
+    @Test
+    void gameEndsWhenDraw() {
+        String mockUserInput = "0";
+        Game game = Mockito.mock(Game.class);
+        Mockito.when(game.isGameDraw())
+                .thenReturn(false)
+                .thenReturn(true);
+        Mockito.when(game.isGameWon()).thenReturn(false);
+        GameRunner winGameRunner = new GameRunner(game);
+        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(mockUserInput.getBytes());
+        winGameRunner.runGame(byteArrayInputStream);
+    }
+
+    @Test
+    void gameRunnerThrowsExceptionWhenNoInputIsAvailable() {
+        String mockUserInput = "0";
+        Game game = Mockito.mock(Game.class);
+        Mockito.when(game.isGameDraw()).thenReturn(false);
+        Mockito.when(game.isGameWon()).thenReturn(false);
+        GameRunner winGameRunner = new GameRunner(game);
+        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(mockUserInput.getBytes());
+        winGameRunner.runGame(byteArrayInputStream);
+    }
 }
