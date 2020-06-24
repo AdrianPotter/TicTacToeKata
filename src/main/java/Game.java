@@ -19,13 +19,13 @@ public class Game {
     private final Grid grid;
 
     public Game() {
-        this(new Grid());
+        this(new Grid(), new Player(), new Player());
     }
 
-    public Game(Grid grid) {
-        player1 = new Player();
-        player2 = new Player();
-        currentPlayer = player1;
+    public Game(Grid grid, Player player1, Player player2) {
+        this.player1 = player1;
+        this.player2 = player2;
+        currentPlayer = this.player1;
         this.grid = grid;
     }
 
