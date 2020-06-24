@@ -4,16 +4,15 @@ import java.util.Scanner;
 public class GameRunner {
 
     private Game game;
-    private InputStream inputStream;
+    private Scanner scanner;
 
     public GameRunner() {
-        this.game = new Game();
-        this.inputStream = System.in;
+        this(new Game(), System.in);
     }
 
     public GameRunner(Game game, InputStream inputStream) {
         this.game = game;
-        this.inputStream = inputStream;
+        this.scanner = new Scanner(inputStream);
     }
 
     public void runGame() {
@@ -32,7 +31,6 @@ public class GameRunner {
 
     private int takeUserInput() {
         System.out.println("Enter move: ");
-        Scanner scanner = new Scanner(inputStream);
         return scanner.nextInt();
     }
 
