@@ -14,13 +14,13 @@ public class GridTest {
 
     @Test
     void gridIsInitialisedWithRightSize() {
-        Assertions.assertTrue(grid.getGridSize() == GRID_SIZE);
+        Assertions.assertEquals(grid.getGridSize(), (int) GRID_SIZE);
     }
 
     @Test
     void newGridIsEmpty() {
         for (int i = 0; i < grid.getGridSize(); i++) {
-            Assertions.assertTrue(grid.getCell(i) == null);
+            Assertions.assertNull(grid.getCell(i));
         }
     }
 
