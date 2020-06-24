@@ -6,7 +6,7 @@ import java.io.ByteArrayInputStream;
 public class GameRunnerTest {
 
     @Test
-    void userInputIsReturned(){
+    void userInputIsReturned() {
         String mockInput = "0";
         Game game = new Game();
         ByteArrayInputStream mockInputStream = new ByteArrayInputStream(mockInput.getBytes());

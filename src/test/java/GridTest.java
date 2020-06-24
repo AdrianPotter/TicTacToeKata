@@ -8,31 +8,31 @@ public class GridTest {
     private final int GRIDSIZE = 9;
 
     @BeforeEach
-    void Setup(){
-         grid = new Grid();
+    void Setup() {
+        grid = new Grid();
     }
 
     @Test
-    void gridIsInitialisedWithRightSize(){
+    void gridIsInitialisedWithRightSize() {
         Assertions.assertTrue(grid.getGridSize() == GRIDSIZE);
     }
 
     @Test
-    void newGridIsEmpty(){
-        for(int i = 0; i < grid.getGridSize(); i++){
+    void newGridIsEmpty() {
+        for (int i = 0; i < grid.getGridSize(); i++) {
             Assertions.assertTrue(grid.getCell(i) == null);
         }
     }
 
     @Test
-    void gridWithEmptySpaceHasEmptyCell(){
+    void gridWithEmptySpaceHasEmptyCell() {
         Assertions.assertTrue(grid.hasEmptyCell());
     }
 
     @Test
-    void fullGridHasNoEmptyCell(){
+    void fullGridHasNoEmptyCell() {
         Player player = new Player("aName", 'X');
-        for(int i = 0; i < grid.getGridSize(); i++){
+        for (int i = 0; i < grid.getGridSize(); i++) {
             grid.setCell(i, player);
         }
         Assertions.assertFalse(grid.hasEmptyCell());
