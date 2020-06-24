@@ -2,7 +2,7 @@ public class Game {
     private final Player player1;
     private final Player player2;
     private Player currentPlayer;
-    private Grid grid;
+    private final Grid grid;
 
     public Game() {
         player1 = new Player();
