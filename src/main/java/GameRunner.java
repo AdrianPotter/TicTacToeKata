@@ -23,7 +23,8 @@ public class GameRunner {
                 try {
                     game.placeMove(takeUserInput());
                     break;
-                } catch (IllegalArgumentException ignored) {
+                } catch (IllegalArgumentException e) {
+                    System.out.println(e.getMessage());
                 }
             }
         }
