@@ -1,6 +1,7 @@
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class GridTest {
 
@@ -14,19 +15,19 @@ public class GridTest {
 
     @Test
     void gridIsInitialisedWithRightSize() {
-        Assertions.assertEquals(grid.getGridSize(), GRID_SIZE);
+        assertEquals(grid.getGridSize(), GRID_SIZE);
     }
 
     @Test
     void newGridIsEmpty() {
         for (int i = 0; i < grid.getGridSize(); i++) {
-            Assertions.assertNull(grid.getCell(i));
+            assertNull(grid.getCell(i));
         }
     }
 
     @Test
     void gridWithEmptySpaceHasEmptyCell() {
-        Assertions.assertTrue(grid.hasEmptyCell());
+        assertTrue(grid.hasEmptyCell());
     }
 
     @Test
@@ -35,6 +36,6 @@ public class GridTest {
         for (int i = 0; i < grid.getGridSize(); i++) {
             grid.setCell(i, player);
         }
-        Assertions.assertFalse(grid.hasEmptyCell());
+        assertFalse(grid.hasEmptyCell());
     }
 }
