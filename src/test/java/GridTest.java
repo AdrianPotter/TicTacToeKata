@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 public class GridTest {
 
     Grid grid;
-    private final int GRIDSIZE = 9;
+    private static final int GRID_SIZE = 9;
 
     @BeforeEach
     void Setup() {
@@ -14,7 +14,7 @@ public class GridTest {
 
     @Test
     void gridIsInitialisedWithRightSize() {
-        Assertions.assertTrue(grid.getGridSize() == GRIDSIZE);
+        Assertions.assertTrue(grid.getGridSize() == GRID_SIZE);
     }
 
     @Test
