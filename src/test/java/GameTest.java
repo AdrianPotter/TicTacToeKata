@@ -3,6 +3,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 
 class GameTest {
@@ -51,9 +53,7 @@ class GameTest {
 
     @Test
     void gameIsDrawIfNoEmptyCellsLeft() {
-        for (int i = 0; i < GRID_SIZE; i++) {
-            game.placeMove(i);
-        }
+        IntStream.range(0, GRID_SIZE).forEach(game::placeMove);
         Assertions.assertTrue(game.gameIsADraw());
     }
 
@@ -72,5 +72,5 @@ class GameTest {
     private void placeMoves(Integer ...moves) {
         Arrays.stream(moves).forEach(game::placeMove);
     }
-    
+
 }
