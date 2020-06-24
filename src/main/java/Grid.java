@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Grid {
-    private static final int GRID_SIZE = 9;
+    private static final Integer GRID_SIZE = 9;
     private final ArrayList<Player> grid = new ArrayList<>(Collections.nCopies(GRID_SIZE, null));
 
     public Player getCell(int index) {
