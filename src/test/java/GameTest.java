@@ -80,4 +80,9 @@ class GameTest {
         assertTrue(game.currentPlayerHasWon());
     }
 
+    @Test
+    void canCreateGameFromDefaultConstructor() {
+        new Game();
+    }
+
 }

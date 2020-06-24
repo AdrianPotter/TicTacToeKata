@@ -2,7 +2,6 @@ import java.io.InputStream;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-//TODO: Low test coverage
 public class GameRunner {
 
     private Game game;
