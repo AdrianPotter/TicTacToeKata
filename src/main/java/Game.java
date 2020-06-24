@@ -25,39 +25,39 @@ public class Game {
     }
 
     public boolean isValidMove(int index) {
-        return (isMoveWithinGrid(index) && hasMoveAlreadyBeenPlayed(index));
+        return isMoveWithinGrid(index) && hasMoveAlreadyBeenPlayed(index);
     }
 
     private boolean isMoveWithinGrid(int index) {
-        return (index >= 0 && index < grid.getGridSize());
+        return index >= 0 && index < grid.getGridSize();
     }
 
     private boolean hasMoveAlreadyBeenPlayed(int index) {
-        return (grid.getCell(index) == null);
+        return grid.getCell(index) == null;
     }
 
     public boolean currentPlayerHasWon() {
-        return (horizontalWinningConditionMet() || verticalWinningConditionMet() || diagonalWinningConditionMet());
+        return horizontalWinningConditionMet() || verticalWinningConditionMet() || diagonalWinningConditionMet();
     }
 
     private boolean verticalWinningConditionMet() {
-        return (cellsMatch(0, 3, 6) || cellsMatch(1, 4, 7) || cellsMatch(2, 5, 8));
+        return cellsMatch(0, 3, 6) || cellsMatch(1, 4, 7) || cellsMatch(2, 5, 8);
     }
 
     private boolean horizontalWinningConditionMet() {
-        return (cellsMatch(0, 1, 2) || cellsMatch(3, 4, 5) || cellsMatch(6, 7, 8));
+        return cellsMatch(0, 1, 2) || cellsMatch(3, 4, 5) || cellsMatch(6, 7, 8);
     }
 
     private boolean diagonalWinningConditionMet() {
-        return (cellsMatch(0, 4, 8) || cellsMatch(2, 4, 6));
+        return cellsMatch(0, 4, 8) || cellsMatch(2, 4, 6);
     }
 
     public boolean gameIsADraw() {
-        return (!grid.hasEmptyCell());
+        return !grid.hasEmptyCell();
     }
 
     private boolean cellsMatch(int index1, int index2, int index3) {
-        return (grid.getCell(index1) == currentPlayer && grid.getCell(index2) == currentPlayer && grid.getCell(index3) == currentPlayer);
+        return grid.getCell(index1) == currentPlayer && grid.getCell(index2) == currentPlayer && grid.getCell(index3) == currentPlayer;
     }
 
     public Player getCurrentPlayer() {
