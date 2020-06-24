@@ -11,6 +11,6 @@ public class GameRunnerTest {
         Game game = new Game();
         ByteArrayInputStream mockInputStream = new ByteArrayInputStream(mockInput.getBytes());
         GameRunner gameRunner = new GameRunner(game, mockInputStream);
-        Assertions.assertTrue(gameRunner.takeUserInput() == 0);
+        Assertions.assertEquals(0, gameRunner.takeUserInput());
     }
 }
