@@ -1,4 +1,5 @@
 import java.io.InputStream;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 //TODO: Low test coverage
@@ -23,8 +24,9 @@ public class GameRunner {
                 try {
                     game.placeMove(takeUserInput());
                     break;
-                } catch (IllegalArgumentException e) {
-                    System.out.println(e.getMessage());
+                } catch (IllegalArgumentException | InputMismatchException e) {
+                    System.out.println(e);
+                    scanner.nextLine();
                 }
             }
         }
