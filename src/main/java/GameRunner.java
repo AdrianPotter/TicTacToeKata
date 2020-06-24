@@ -23,8 +23,7 @@ public class GameRunner {
                 try {
                     game.placeMove(takeUserInput());
                     break;
-                } catch (IllegalArgumentException e) {
-                    continue;
+                } catch (IllegalArgumentException ignored) {
                 }
             }
         }
@@ -35,5 +34,8 @@ public class GameRunner {
         return scanner.nextInt();
     }
 
+    public static void main(String[] args) {
+        new GameRunner().runGame();
+    }
 
 }
