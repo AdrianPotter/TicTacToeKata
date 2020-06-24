@@ -19,10 +19,14 @@ public class Game {
     private final Grid grid;
 
     public Game() {
+        this(new Grid());
+    }
+
+    public Game(Grid grid) {
         player1 = new Player();
         player2 = new Player();
         currentPlayer = player1;
-        grid = new Grid(); //TODO: Hard dependency on Grid
+        this.grid = grid;
     }
 
     public void switchPlayer() {
