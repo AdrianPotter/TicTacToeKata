@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 public class GridTest {
 
     Grid grid;
-    private static final int GRID_SIZE = 9;
+    private static final Integer GRID_SIZE = 9;
 
     @BeforeEach
     void Setup() {
