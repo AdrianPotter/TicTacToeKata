@@ -44,7 +44,7 @@ class GameTest {
     void playerIsSwitched() {
         Player player = game.getCurrentPlayer();
         game.switchPlayer();
-        Assertions.assertFalse(game.getCurrentPlayer() == player);
+        Assertions.assertNotSame(game.getCurrentPlayer(), player);
     }
 
     @Test
