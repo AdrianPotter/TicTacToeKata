@@ -2,6 +2,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+
 
 class GameTest {
     private Game game;
@@ -57,20 +59,18 @@ class GameTest {
 
     @Test
     void noWinnerIfNoConditionsMet() {
-        game.placeMove(0);
-        game.placeMove(2);
-        game.placeMove(6);
-        game.placeMove(8);
+        placeMoves(0, 2, 6, 8);
         Assertions.assertFalse(game.currentPlayerHasWon());
     }
 
     @Test
     void playerHasWonIfConditionsMet() {
-        game.placeMove(0);
-        game.placeMove(1);
-        game.placeMove(2);
+        placeMoves(0, 1, 2);
         Assertions.assertTrue(game.currentPlayerHasWon());
     }
 
-
+    private void placeMoves(Integer ...moves) {
+        Arrays.stream(moves).forEach(game::placeMove);
+    }
+    
 }
