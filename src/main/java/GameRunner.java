@@ -30,7 +30,7 @@ public class GameRunner {
         }
     }
 
-    public int takeUserInput(){
+    private int takeUserInput(){
         Scanner scanner = new Scanner(inputStream);
         return scanner.nextInt();
     }
