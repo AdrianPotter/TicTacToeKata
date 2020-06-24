@@ -1,5 +1,8 @@
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.util.stream.IntStream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -20,9 +23,10 @@ public class GridTest {
 
     @Test
     void newGridIsEmpty() {
-        for (int i = 0; i < grid.getGridSize(); i++) {
-            assertNull(grid.getCell(i));
-        }
+        IntStream
+            .range(0, grid.getGridSize())
+            .mapToObj(grid::getCell)
+            .forEach(Assertions::assertNull);
     }
 
     @Test
