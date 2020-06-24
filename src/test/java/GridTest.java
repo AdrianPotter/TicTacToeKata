@@ -14,7 +14,7 @@ public class GridTest {
 
     @Test
     void gridIsInitialisedWithRightSize() {
-        Assertions.assertEquals(grid.getGridSize(), (int) GRID_SIZE);
+        Assertions.assertEquals(grid.getGridSize(), GRID_SIZE);
     }
 
     @Test

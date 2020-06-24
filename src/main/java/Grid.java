@@ -19,7 +19,7 @@ public class Grid {
         grid.set(index, player);
     }
 
-    public int getGridSize(){
+    public Integer getGridSize(){
         return grid.size();
     }
 
