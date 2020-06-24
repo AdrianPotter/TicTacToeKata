@@ -19,14 +19,18 @@ public class GameRunner {
     public void runGame() {
         while (!game.currentPlayerHasWon() && !game.gameIsADraw()) {
             game.switchPlayer();
-            while (true) {
-                try {
-                    game.placeMove(takeUserInput());
-                    break;
-                } catch (IllegalArgumentException | InputMismatchException e) {
-                    System.out.println(e);
-                    scanner.nextLine();
-                }
+            safePlaceMove();
+        }
+    }
+
+    private void safePlaceMove() {
+        while (true) {
+            try {
+                game.placeMove(takeUserInput());
+                break;
+            } catch (IllegalArgumentException | InputMismatchException e) {
+                System.out.println(e);
+                scanner.nextLine();
             }
         }
     }
