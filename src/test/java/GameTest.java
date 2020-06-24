@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 class GameTest {
     private Game game;
-    private final int GRIDSIZE = 9;
+    private static final Integer GRIDSIZE = 9;
 
     @BeforeEach
     void setup() {
