@@ -36,7 +36,7 @@ public class GridTest {
 
     @Test
     void fullGridHasNoEmptyCell() {
-        Player player = new Player("aName", 'X');
+        Player player = new Player();
         IntStream
             .range(0, grid.getGridSize())
             .forEach(i -> grid.setCell(i, player));

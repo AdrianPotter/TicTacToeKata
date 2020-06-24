@@ -4,6 +4,6 @@ public class PlayerTest {
 
     @Test
     void playerIsInstantiatedWithoutError() {
-        new Player("AName", 'X');
+        new Player();
     }
 }

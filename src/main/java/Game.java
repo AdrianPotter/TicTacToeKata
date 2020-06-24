@@ -5,8 +5,8 @@ public class Game {
     private Grid grid;
 
     public Game(){
-        player1 = new Player("Player 1", 'X');
-        player2 = new Player("Player 2", 'O');
+        player1 = new Player();
+        player2 = new Player();
         currentPlayer = player1;
         grid = new Grid();
     }
