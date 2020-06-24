@@ -37,9 +37,9 @@ public class GridTest {
     @Test
     void fullGridHasNoEmptyCell() {
         Player player = new Player("aName", 'X');
-        for (int i = 0; i < grid.getGridSize(); i++) {
-            grid.setCell(i, player);
-        }
+        IntStream
+            .range(0, grid.getGridSize())
+            .forEach(i -> grid.setCell(i, player));
         assertFalse(grid.hasEmptyCell());
     }
 }
