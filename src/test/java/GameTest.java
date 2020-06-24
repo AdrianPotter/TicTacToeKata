@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 class GameTest {
     private Game game;
-    private static final Integer GRIDSIZE = 9;
+    private static final Integer GRID_SIZE = 9;
 
     @BeforeEach
     void setup() {
@@ -49,7 +49,7 @@ class GameTest {
 
     @Test
     void gameIsDrawIfNoEmptyCellsLeft() {
-        for (int i = 0; i < GRIDSIZE; i++) {
+        for (int i = 0; i < GRID_SIZE; i++) {
             game.placeMove(i);
         }
         Assertions.assertTrue(game.gameIsADraw());
