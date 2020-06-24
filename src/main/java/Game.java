@@ -8,7 +8,7 @@ public class Game {
         player1 = new Player();
         player2 = new Player();
         currentPlayer = player1;
-        grid = new Grid();
+        grid = new Grid(); //TODO: Hard dependency on Grid
     }
 
     public void switchPlayer(){
