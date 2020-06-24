@@ -1,5 +1,5 @@
 import java.util.Arrays;
-import java.util.stream.Collectors;
+import java.util.List;
 
 public class Game {
 
@@ -57,28 +57,39 @@ public class Game {
     }
 
     private boolean verticalWinningConditionMet() {
-        return cellsMatch(TOP_LEFT, MIDDLE_LEFT, BOTTOM_LEFT)
-            || cellsMatch(TOP_CENTER, MIDDLE_CENTER, BOTTOM_CENTER)
-            || cellsMatch(TOP_RIGHT, MIDDLE_RIGHT, BOTTOM_RIGHT);
+        return winningConditionsMet(
+            List.of(TOP_LEFT, MIDDLE_LEFT, BOTTOM_LEFT),
+            List.of(TOP_CENTER, MIDDLE_CENTER, BOTTOM_CENTER),
+            List.of(TOP_RIGHT, MIDDLE_RIGHT, BOTTOM_RIGHT)
+        );
     }
 
     private boolean horizontalWinningConditionMet() {
-        return cellsMatch(TOP_LEFT, TOP_CENTER, TOP_RIGHT)
-            || cellsMatch(MIDDLE_LEFT, MIDDLE_CENTER, MIDDLE_RIGHT)
-            || cellsMatch(BOTTOM_LEFT, BOTTOM_CENTER, BOTTOM_RIGHT);
+        return winningConditionsMet(
+            List.of(TOP_LEFT, TOP_CENTER, TOP_RIGHT),
+            List.of(MIDDLE_LEFT, MIDDLE_CENTER, MIDDLE_RIGHT),
+            List.of(BOTTOM_LEFT, BOTTOM_CENTER, BOTTOM_RIGHT)
+        );
     }
 
     private boolean diagonalWinningConditionMet() {
-        return cellsMatch(TOP_LEFT, MIDDLE_CENTER, BOTTOM_RIGHT)
-            || cellsMatch(TOP_RIGHT, MIDDLE_CENTER, BOTTOM_LEFT);
+        return winningConditionsMet(
+            List.of(TOP_LEFT, MIDDLE_CENTER, BOTTOM_RIGHT),
+            List.of(TOP_RIGHT, MIDDLE_CENTER, BOTTOM_LEFT)
+        );
     }
 
     public boolean gameIsADraw() {
         return !grid.hasEmptyCell();
     }
 
-    private boolean cellsMatch(Integer... cells) {
-        return Arrays.stream(cells).map(grid::getCell).allMatch(currentPlayer::equals);
+    @SafeVarargs
+    private boolean winningConditionsMet(List<Integer>... winningConditions) {
+        return Arrays.stream(winningConditions).anyMatch(this::cellsMatch);
+    }
+
+    private boolean cellsMatch(List<Integer> cells) {
+        return cells.stream().map(grid::getCell).allMatch(currentPlayer::equals);
     }
 
 }
