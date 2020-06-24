@@ -60,8 +60,4 @@ public class Game {
         return grid.getCell(index1) == currentPlayer && grid.getCell(index2) == currentPlayer && grid.getCell(index3) == currentPlayer;
     }
 
-    public Player getCurrentPlayer() {
-        return currentPlayer;
-    }
-
 }
