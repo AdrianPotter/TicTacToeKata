@@ -1,3 +1,6 @@
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
 public class Game {
 
     private static final Integer TOP_LEFT = 0;
@@ -74,8 +77,8 @@ public class Game {
         return !grid.hasEmptyCell();
     }
 
-    private boolean cellsMatch(int index1, int index2, int index3) {
-        return grid.getCell(index1) == currentPlayer && grid.getCell(index2) == currentPlayer && grid.getCell(index3) == currentPlayer;
+    private boolean cellsMatch(Integer... cells) {
+        return Arrays.stream(cells).map(grid::getCell).allMatch(currentPlayer::equals);
     }
 
 }
