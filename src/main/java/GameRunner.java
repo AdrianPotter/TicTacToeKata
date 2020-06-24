@@ -6,35 +6,34 @@ public class GameRunner {
     private Game game;
     private InputStream inputStream;
 
-    public GameRunner(){
+    public GameRunner() {
         this.game = new Game();
         this.inputStream = System.in;
     }
 
-    public GameRunner(Game game, InputStream inputStream){
+    public GameRunner(Game game, InputStream inputStream) {
         this.game = game;
         this.inputStream = inputStream;
     }
 
-    public void runGame(){
-        while(!game.currentPlayerHasWon() && !game.gameIsADraw()){
+    public void runGame() {
+        while (!game.currentPlayerHasWon() && !game.gameIsADraw()) {
             game.switchPlayer();
-            while(true){
-                try{
+            while (true) {
+                try {
                     game.placeMove(takeUserInput());
                     break;
-                }catch(IllegalArgumentException e){
+                } catch (IllegalArgumentException e) {
                     continue;
                 }
             }
         }
     }
 
-    private int takeUserInput(){
+    private int takeUserInput() {
         Scanner scanner = new Scanner(inputStream);
         return scanner.nextInt();
     }
-
 
 
 }
