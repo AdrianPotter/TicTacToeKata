@@ -13,7 +13,7 @@ public class GameRunnerTest {
         ByteArrayInputStream mockInputStream = new ByteArrayInputStream(mockInput.getBytes());
 
         GameRunner gameRunner = new GameRunner(game, mockInputStream);
-        
+
         assertEquals(0, gameRunner.takeUserInput());
     }
 }
