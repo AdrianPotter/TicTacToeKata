@@ -31,6 +31,7 @@ public class GameRunner {
     }
 
     private int takeUserInput() {
+        System.out.println("Enter move: ");
         Scanner scanner = new Scanner(inputStream);
         return scanner.nextInt();
     }
